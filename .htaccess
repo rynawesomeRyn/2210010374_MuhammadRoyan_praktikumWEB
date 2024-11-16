@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    Options -Multiviews
+    RewriteEngine On
+
+    # Jika URL root, arahkan ke folder public
+    RewriteRule ^$ public/ [L]
+
+    # Jika permintaan bukan file atau folder, arahkan ke folder public
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
